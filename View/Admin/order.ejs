@@ -1,0 +1,31 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <div>
+          <h1 class="text-center text-success mt-4 mb-4">Customer Order</h1>
+            <form action="/postorder" class="mb-5" method="POST" autocomplete="off">
+              <h2 class="text-success mx-5 mb-4">Your Order</h2>
+                <div class="mb-3">
+                  <label for="odnum" class="form-label mx-5">Order Number</label>
+                  <input type="text" class="form-control mx-5" name="odnum" id="odnum" placeholder="Order Number">
+                </div>
+                <div class="mb-3">
+                  <select name="cid" id="cid" class="form-control mx-5">
+                    <option selected disabled>Select Customer</option>
+                    <%if(data.length>0){%>
+                      <%for(let obj of data){%>
+                        <option value="<%=obj._id%>"><%=obj.customer_name%></option>
+                      <%}%>
+                    <%}%>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary mx-5">Add Order</button>
+              </form>
+        </div>
+    </main>
+<%-include('../includes/footer.ejs')%>

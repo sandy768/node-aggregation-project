@@ -1,0 +1,29 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <div>
+          <h1 class="text-center text-success mt-4 mb-4">Customer Registration</h1>
+            <form action="/postdata" class="mb-5" method="POST" autocomplete="off">
+              <h2 class="text-success mx-5 mb-4">Add Customer</h2>
+                <div class="mb-3">
+                  <label for="name" class="form-label mx-5">Customer Name</label>
+                  <input type="text" class="form-control mx-5 me-5" name="name" id="name" placeholder="Customer Name">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label mx-5">Customer Email</label>
+                  <input type="email" class="form-control mx-5" name="email" id="email" placeholder="Customer Email">
+                </div>
+                <div class="mb-3">
+                  <label for="city" class="form-label mx-5">City</label>
+                  <input type="text" class="form-control mx-5" name="city" id="city" placeholder="Customer City">
+                </div>
+                <button type="submit" class="btn btn-primary mx-5">Add Cutomer</button>
+              </form>
+        </div>
+    </main>
+<%-include('../includes/footer.ejs')%>

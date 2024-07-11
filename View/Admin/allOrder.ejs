@@ -1,0 +1,42 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <h1 class="text-success mt-5 mb-4 mx-5">All Customer Details</h1>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Search by City
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">All</a></li>
+              <li><a class="dropdown-item" href="/showkolkata">Kolkata</a></li>
+              <li><a class="dropdown-item" href="#">Bangalore</a></li>
+              <li><a class="dropdown-item" href="#">Delhi</a></li>
+            </ul>
+          </div>
+        <table border="1" cellspacing="0" cellpadding="10px" class="mb-5 mx-5">
+            <tr>
+                <td><b>Order Number</b></td>
+                <td><b>Customer Name</b></td>
+                <td><b>Customer Email</b></td>
+                <td><b>Customer City</b></td>
+            </tr>
+            <%if(info.length>0){%>
+                <%info.map(order=>{%>
+            <tr>
+                    <td><%=order.order_num%></td>
+                    <td><b><%=order.cust.customer_name%></b></td>
+                    <td><%=order.cust.customer_email%></td>
+                    <td><%=order.cust.customer_city%></td>
+            </tr>
+                <%})%>
+            <%}else{%>
+                <h1>Content not found</h1>
+            <%}%>
+        </table>
+    </main>
+<%-include('../includes/footer.ejs')%>

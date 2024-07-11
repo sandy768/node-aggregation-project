@@ -1,0 +1,29 @@
+<%-include('../includes/header.ejs')%>
+<title>
+    <%=title%>
+</title>
+</head>
+<body>
+    <%-include('../includes/navbar.ejs')%>
+    <main>
+        <h1 class="text-success mt-5 mb-4 mx-5">Customer Details Based on Sort</h1>
+        <table border="1" cellspacing="0" cellpadding="10px" class="mb-5 mx-5">
+            <tr>
+                <td><b>Customer Name</b></td>
+                <td><b>Customer Email</b></td>
+                <td><b>Customer City</b></td>
+            </tr>
+            <%if(info.length>0){%>
+                <%info.map(order=>{%>
+            <tr>
+                    <td><b><%=order.customer_name%></b></td>
+                    <td><%=order.customer_email%></td>
+                    <td><%=order.customer_city%></td>
+            </tr>
+                <%})%>
+            <%}else{%>
+                <h1>Content not found</h1>
+            <%}%>
+        </table>
+    </main>
+<%-include('../includes/footer.ejs')%>
